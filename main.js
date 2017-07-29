@@ -23,11 +23,3 @@ function judo(){
   eHealthBar.value -= 7 + Math.floor(Math.random()*13);
   updEHealth();
 }
-
-
-
-// var pBar = document.getElementById('p');
-// var updateProgress = function(value) {
-//   pBar.value = value;
-//   pBar.getElementsByTagName('span')[0].innerHTML = Math.floor((100 / 70) * value);
-// }
