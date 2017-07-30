@@ -5,6 +5,10 @@
   font-family: 'Lekton', sans-serif;
 }
 
+body {
+  background-color: rgb(36, 36, 36);
+}
+
 main {
   background-image: url(img/cave.png);
   background-position: 0 -365px;
