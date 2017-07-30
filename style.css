@@ -14,6 +14,9 @@ main {
   margin: 25px auto;
 }
 
+
+/*========== default hp bar ============*/
+
 progress {
   -webkit-appearance: none;
   appearance: none;
@@ -21,10 +24,16 @@ progress {
   height: 20px;
 }
 
+
+/*the actual health value*/
+
 progress::-webkit-progress-value {
   background-image: linear-gradient(270deg, rgb(8, 145, 1), rgb(49, 185, 36));
   border-radius: 3px;
 }
+
+
+/*the health bar bg*/
 
 progress::-webkit-progress-bar {
   border-radius: 3px;
@@ -33,6 +42,9 @@ progress::-webkit-progress-bar {
 
 /*=========== enemy information ===========*/
 
+
+/*enemy hp container*/
+
 .enemyStat {
   display: flex;
   position: relative;
@@ -40,11 +52,17 @@ progress::-webkit-progress-bar {
   left: 50px;
 }
 
+
+/*enemy hp bar*/
+
 #enemyHlth {
   margin-right: 5px;
   transition: .3s;
   transition-property: value;
 }
+
+
+/*enemy hp text*/
 
 #enemyHlthNum {
   position: absolute;
@@ -55,6 +73,9 @@ progress::-webkit-progress-bar {
   margin-right: 7px;
   color: white;
 }
+
+
+/*da critz text*/
 
 #crit {
   display: none;
@@ -68,6 +89,9 @@ progress::-webkit-progress-bar {
 
 /*=========== bottom bar ==============*/
 
+
+/*bottom container*/
+
 .actionBar {
   position: relative;
   top: 335px;
@@ -77,6 +101,9 @@ progress::-webkit-progress-bar {
   padding: 20px;
 }
 
+
+/*container for action buttons*/
+
 .fightActions {
   position: relative;
   top: -20px;
@@ -85,12 +112,18 @@ progress::-webkit-progress-bar {
   height: 100px;
 }
 
+
+/*action button list*/
+
 .fightActions>ul {
   display: flex;
   flex-flow: row wrap;
   height: 100%;
   width: 100%;
 }
+
+
+/*action button items*/
 
 .fightActions>ul>li {
   list-style: none;
@@ -123,15 +156,27 @@ progress::-webkit-progress-bar {
   outline: none;
 }
 
+
+/*============= hero health bar============*/
+
+
+/*container*/
+
 .friendStat {
   display: flex;
   position: relative;
   left: 535px;
 }
 
+
+/*health bar*/
+
 #friendlyHlth {
   transform: rotate(180deg);
 }
+
+
+/*health text*/
 
 #myHlthNum {
   position: absolute;
