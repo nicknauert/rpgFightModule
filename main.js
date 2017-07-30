@@ -10,6 +10,17 @@ function updFHealth(){
   fHealthNum.innerHTML = fHealthBar.value;
 }
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function critDisplay() {
+  document.getElementById("crit").style.display = "block";
+  console.log("crit");
+  await sleep(2000);
+  document.getElementById("crit").style.display = "none";
+}
+
 
 function punch(){
   //default attack
@@ -23,6 +34,7 @@ function punch(){
   } else if (chance >= .9){
     dmg = Math.floor(Math.random()*6)+12;
     // add crit indicator?
+    critDisplay();
   }
   eHealthBar.value -= dmg;
   console.log(dmg);
@@ -41,13 +53,13 @@ function judo(){
   } else if (chance >= .9){
     dmg = Math.floor(Math.random()*4)+18;
     // add crit indicator?
+    critDisplay();
+
   }
   eHealthBar.value -= dmg;
   console.log(dmg);
   updEHealth();
 }
-
-
 
 function dmgRnd(){
   let chance = Math.random();
@@ -58,6 +70,6 @@ function dmgRnd(){
     dmg = Math.floor(Math.random()*10)+4;
   } else if (chance >= .9){
     dmg = Math.floor(Math.random()*6)+12;
-    // add crit indicator?
+
   }
 }

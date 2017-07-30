@@ -54,6 +54,15 @@ progress::-webkit-progress-bar {
   color: white;
 }
 
+#crit {
+  display: none;
+  position: absolute;
+  top: 25px;
+  left: 130px;
+  color: rgb(255, 65, 65);
+  transition: .3s;
+}
+
 
 /*=========== bottom bar ==============*/
 
