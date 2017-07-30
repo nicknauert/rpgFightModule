@@ -2,6 +2,7 @@ let eHealthBar = document.getElementById("enemyHlth");
 let eHealthNum = document.getElementById("enemyHlthNum");
 let fHealthBar = document.getElementById("friendlyHlth");
 let fHealthNum = document.getElementById("myHlthNum");
+let turnCount = 0;
 
 
 
@@ -48,7 +49,7 @@ function sleep(ms) {
 
 async function critDisplay() {
   document.getElementById("crit").style.display = "block";
-  console.log("crit");
+  console.log("Critical Hit!");
   await sleep(2000);
   document.getElementById("crit").style.display = "none";
 }
@@ -72,8 +73,9 @@ async function punch(){
     critDisplay();
   }
   eHealthBar.value -= Math.round(dmg * (1+(hero.atk*.1)) / (1+(baddie.armor*.05)));
-  console.log(dmg);
+  console.log("You Do " + Math.round(dmg * (1+(hero.atk*.1)) / (1+(baddie.armor*.05))) + " dmg");
   updEHealth();
+  turnCount++;
   await sleep(500);
   enemyTurn();
 
@@ -92,8 +94,25 @@ async function judo(){
     critDisplay();
   }
   eHealthBar.value -= Math.round(dmg * (1+(hero.atk*.1)) / (1+(baddie.armor*.05)));
-  console.log(Math.round(dmg * (1+(hero.atk*.1)) / (1+(baddie.armor*.05))));
+  console.log("You Do " + Math.round(dmg * (1+(hero.atk*.1)) / (1+(baddie.armor*.05))) + " dmg");
   updEHealth();
+  turnCount++;
+  await sleep(500);
+  enemyTurn();
+}
+
+async function insultMother(){
+  let chance = Math.random();
+  let count = turnCount;
+
+  if (chance >= .2){
+    hero.atk *= 1.20;
+    console.log("Your ATK has increased!");
+    console.log("ATK is " + hero.atk);
+    await(turnCount === count + 3);
+  } else {
+    console.log("Your insult was whack!")
+  }
   await sleep(500);
   enemyTurn();
 }
@@ -119,7 +138,7 @@ function enemyTurn() {
       critDisplay();
     }
     fHealthBar.value -= Math.round(dmg * (1+(baddie.atk*.1)) / (1+(hero.armor*.05)));
-    console.log(Math.round(dmg * (1+(baddie.atk*.1)) / (1+(hero.armor*.05))));
+    console.log("Enemy does " + Math.round(dmg * (1+(baddie.atk*.1)) / (1+(hero.armor*.05))) + " dmg");
     updFHealth();
   }
 
@@ -135,15 +154,12 @@ function enemyTurn() {
       critDisplay();
     }
     fHealthBar.value -= Math.round(dmg * (1+(baddie.atk*.1)) / (1+(hero.armor*.05)));
-    console.log(Math.round(dmg * (1+(baddie.atk*.1)) / (1+(hero.armor*.05))));
+    console.log("Enemy does " + Math.round(dmg * (1+(baddie.atk*.1)) / (1+(hero.armor*.05))) + " dmg");
     updFHealth();
   }
-
   if (moveChance>.5){
     ePunch();
   } else {
     eJudo();
   }
-
-
 }

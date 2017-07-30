@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Lekton', sans-serif;
+  font-family: 'VT323', monospace;
 }
 
 body {
@@ -71,9 +71,9 @@ progress::-webkit-progress-bar {
 #enemyHlthNum {
   position: absolute;
   left: 10px;
-  top: 2px;
+  top: 0px;
   text-align: left;
-  font-size: 18px;
+  font-size: 20px;
   margin-right: 7px;
   color: white;
 }
@@ -147,8 +147,9 @@ progress::-webkit-progress-bar {
   padding: 4px 10px;
   width: 100%;
   height: 100%;
-  color: white;
-  font-size: 13px;
+  color: rgb(226, 249, 251);
+  font-size: 19px;
+  letter-spacing: 1px;
 }
 
 .fightActions>ul>li>button:hover {
@@ -185,9 +186,9 @@ progress::-webkit-progress-bar {
 #myHlthNum {
   position: absolute;
   left: 10px;
-  top: 2px;
+  top: 0px;
   text-align: left;
-  font-size: 18px;
+  font-size: 20px;
   margin-right: 7px;
   color: white;
   z-index: 1;
