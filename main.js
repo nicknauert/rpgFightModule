@@ -33,7 +33,6 @@ function punch(){
     dmg = Math.floor(Math.random()*10)+4;
   } else if (chance >= .9){
     dmg = Math.floor(Math.random()*6)+12;
-    // add crit indicator?
     critDisplay();
   }
   eHealthBar.value -= dmg;
@@ -52,9 +51,7 @@ function judo(){
     dmg = Math.floor(Math.random()*8)+3;
   } else if (chance >= .9){
     dmg = Math.floor(Math.random()*4)+18;
-    // add crit indicator?
     critDisplay();
-
   }
   eHealthBar.value -= dmg;
   console.log(dmg);

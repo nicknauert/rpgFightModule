@@ -6,7 +6,9 @@
 }
 
 main {
-  background-image: linear-gradient(180deg, rgb(212, 211, 211), rgb(161, 161, 161));
+  background-image: url(img/cave.png);
+  background-position: 0 -365px;
+  background-size: 180%;
   width: 800px;
   height: 500px;
   margin: 25px auto;
@@ -20,7 +22,7 @@ progress {
 }
 
 progress::-webkit-progress-value {
-  background-color: rgb(40, 195, 37);
+  background-image: linear-gradient(270deg, rgb(8, 145, 1), rgb(49, 185, 36));
   border-radius: 3px;
 }
 
@@ -127,7 +129,9 @@ progress::-webkit-progress-bar {
   left: 535px;
 }
 
-#friendlyHlth {}
+#friendlyHlth {
+  transform: rotate(180deg);
+}
 
 #myHlthNum {
   position: absolute;
@@ -137,4 +141,5 @@ progress::-webkit-progress-bar {
   font-size: 18px;
   margin-right: 7px;
   color: white;
+  z-index: 1;
 }
