@@ -2,6 +2,7 @@ let eHealthBar = document.getElementById("enemyHlth");
 let punchBtn = document.getElementById("punch");
 let eHealthNum = document.getElementById("enemyHlthNum");
 
+// these two functions are used to push the updated hp value to the text display
 function updEHealth(){
   eHealthNum.innerHTML = eHealthBar.value;
 }
@@ -10,10 +11,13 @@ function updFHealth(){
   fHealthNum.innerHTML = fHealthBar.value;
 }
 
+// this is specific to the crit display, and re-useable for other things
+// the quirk is it can only apply to async functions....
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// like this one
 async function critDisplay() {
   document.getElementById("crit").style.display = "block";
   console.log("crit");
@@ -21,22 +25,25 @@ async function critDisplay() {
   document.getElementById("crit").style.display = "none";
 }
 
+// actions
 
 function punch(){
-  //default attack
+  // pulls a random # for determining dmg
   let chance = Math.random();
   let dmg = 0;
-  eHealthBar = eHealthBar;
+
+  eHealthBar = eHealthBar; //this may or may not be necessary anymore idk man
+  // setting damage levels for various chance outputs
   if (chance <= .1){
     dmg = Math.floor(Math.random()*6)+2;
   } else if (chance >.1 && chance <= .9){
     dmg = Math.floor(Math.random()*10)+4;
   } else if (chance >= .9){
     dmg = Math.floor(Math.random()*6)+12;
-    critDisplay();
+    critDisplay(); //pops up the crit indicator if someone gets crat on
   }
-  eHealthBar.value -= dmg;
-  console.log(dmg);
+  eHealthBar.value -= dmg; //updates enemy health with dmg out from above
+  console.log(dmg); //debugging
   updEHealth();
 }
 
@@ -58,6 +65,7 @@ function judo(){
   updEHealth();
 }
 
+// this was my test for the updated dmg model. does nothing
 function dmgRnd(){
   let chance = Math.random();
   let dmg = 0;
